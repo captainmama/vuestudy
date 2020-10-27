@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id ="app">
+        <input type="button" value="zhuanhuan" @click="flag= !flag">
+        <!-- v-show不会每次都进行dom操作 ,只是给元素增加style改变样式 display:none-->
+        <p v-show="flag">this is v-show</p>
+        <!-- v-if每次使用都会删除或增加元素 -->
+        <p v-if="flag">this is v-if</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                flag:true
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <myl></myl> -->
+        <myt></myt>
+        <mye></mye>
+    </div>
+    <template id='ll'>
+        <h3>
+            这是全局组件!!!
+        </h3>
+    </template>
+    <script>
+
+        // 使用vue.extend来创建全局的vue组件
+        // var l = Vue.extend({
+        //     template:'<h3>this is Vue.extend</h3>'
+        // })
+        // Vue.component('myl',l)
+
+        ////////////////////////////////
+        // 这是全局组件
+        Vue.component('myt',Vue.extend({
+            template:'#ll'
+        }))
+        var vm  = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                
+            },
+            // 这里定义一个私有组件
+            components:{
+                mye:{
+                   template: '<h3>这是私有组件</h3>'
+                    }
+            }
+        })
+    </script>
+</body>
+</html>

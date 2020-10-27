@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="" @click.prevent="cnm='login'">第一个</a>
+        <a href="" @click.prevent="cnm='login1'">第二个</a>
+        <!-- <login v-if=flag></login> -->
+        <!--<login1 v-else=flag></login1> --> 
+        <!-- component时vue提供的-->
+        <component :is="cnm"></component>
+    </div>
+    <script>
+        Vue.component('login',{
+            template:'<h3>这是一个组件!!!!!!</h3>'
+        })
+        Vue.component('login1',{
+            template:'<h3>这是另一个组件???????</h3>'
+        })
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                flag:true,
+                cnm:""
+            },
+            methods:{
+                // change:function(){
+                //     this.flag = !this.flag
+                //     console.log(this.flag);
+                // }
+            }
+        })
+    </script>
+</body>
+</html>

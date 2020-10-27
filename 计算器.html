@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" style="width:auto;" v-model=s1>
+        <select v-model=opt>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" style="width:auto;" v-model=s2>
+        <input value="=" type="button" @click=suanshu>
+        <input type="text" style="width: auto;" v-model=s3>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                s1: 0,
+                s2: 0,
+                s3: 0,
+                opt: '+'
+            },
+            methods: {
+                suanshu() {
+
+                    // switch (this.opt) {
+                    //     case '+':
+                    //         this.s3 = parseInt(this.s1) + parseInt(this.s2);
+                    //         break;
+                    //     case '-':
+                    //         this.s3 = parseInt(this.s1) - parseInt(this.s2);
+                    //         break;
+                    //     case '*':
+                    //         this.s3 = parseInt(this.s1) * parseInt(this.s2);
+                    //         break;
+                    //     case '/':
+                    //         this.s3 = parseInt(this.s1) / parseInt(this.s2);
+                    //         break;
+
+                    // }
+                    var str = "parseInt(this.s1)" + this.opt + "parseInt(this.s2)"
+                    this.s3 = eval(str)
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="vue.js" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- v-cloak能解决插入表达值闪烁问题,网速慢的时候有用 -->
+    <div id="app">
+        <P>{{msg}}</P>
+        <!-- v-text和插入表达值类似，不会有闪烁问题。 但会覆盖标签原有的值-->
+        <h2 v-text=msg></h2>
+        <!-- 以上两个vue属性只会把数据文本输出，用v-html则会输出html内容，也会覆盖标签内的内容 -->
+        <p v-html = msg2></p>
+            <!-- v-bind用于绑定属性，可以只简写一个冒号 -->
+            <!-- v-on用来绑定事件,可以简写一个@ -->
+        <input type="button" v-bind:title=msg3 value="button1" @click=alert>
+        <div v-bind:id="'list-' + id"></div>
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'123',
+                msg2:'<h1>qwerty</h1>',
+                msg3:'v-bind',
+                id:3
+            },
+            methods:{
+                alert:function(){
+                    alert('helolo')
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

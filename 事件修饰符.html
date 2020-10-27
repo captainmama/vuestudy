@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+    <style>
+        .inner{
+            background: pink;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <div class="inner" @click= "divclk">
+            <!-- 使用.stop事件修饰符，阻止冒泡 -->
+            <!-- <input type="button" value="戳一戳" @click.stop="butclk">
+        </div> --> 
+        <!-- 阻止默认行为 -->
+        <!-- <a href="https://baidu.com" @click.prevent=link> baidu </a> -->
+
+<!-- 使用.self实现只有点击当前元素才能触发 -->
+<!-- 使用.once实现事件只执行一次 -->
+        <div class="inner" @click.self.once= "divclk">
+            <input type="button" value="戳一戳" @click="butclk">
+        </div>
+    </div> 
+    
+
+    <script>
+        var vm = new Vue({
+    el:'#app',
+    data:{
+        divclk(){
+            console.log("thisisdiv");
+        },
+        butclk(){
+            console.log("thisisbut");
+        },
+        link(){
+            console.log("thisisbaidu");
+        }
+    },
+    methods:{
+
+    }
+})
+    </script>
+</body>
+
+</html>

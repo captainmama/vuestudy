@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{a}}</p>
+        <button v-on:click ="a += 1">+1</button>
+    </div>
+</body>
+    <script>
+        var data = {a:1}
+        var vm = new Vue({
+            el:'#app',
+            data:data
+        });
+        // Object.freeze(data);
+vm.$watch('a',function(nv,ov){
+    console.log(nv,ov);
+})
+
+    </script>
+</html>

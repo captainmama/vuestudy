@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <!-- v-modle实现双向绑定，且只能运用在表单元素中 -->
+        <!-- input(radio,text,address,email...) select checkbox textarea -->
+        <input type="text" style="width: 100%;" v-model=msg>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:"fuckyou"
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

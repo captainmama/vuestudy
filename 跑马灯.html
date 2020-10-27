@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <button @click=sao>nihao </button>
+        <button @click=busao>zaijan</button>
+        <h4>{{msg}}</h4>
+    </div>
+    <script>
+        //调用实例中的data的数据或methods中的方法时要使用this
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"qwertyuiop",
+                intervalid:null
+            },
+            methods:{
+                sao:function(){
+                    if (this.intervalid != null) return ;
+                    //用箭头函数里面的this可以直接指向外部的this
+                    //内部的this保持和外部一致
+                    this.intervalid = setInterval(() => {
+                        console.log(this.msg);
+                        start = this.msg.substring(0,1);
+                        end = this.msg.substring(1);
+                        this.msg = end + start;
+                    },300)
+                    console.log(this.intervalid);
+                },
+                busao:function(){
+                    clearInterval(this.intervalid);
+                    //每次停止之后把id重新复制为null，才能再次开始
+                    this.intervalid = null;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

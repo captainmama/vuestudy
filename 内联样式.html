@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 对象就是无序键值对的集合 -->
+        <!-- 如果属性包含-必须使用单引号 -->
+        <h1 :style="{color:'red','font-weight':200}">this is first h1</h1>
+        <!-- 或者把样式定义在data中 -->
+        <h1 :style="styleobj">this is second h1</h1>
+        <!-- 还可以在样式中指定多个数组 -->
+        <h1 :style="[styleobj1,styleobj]">this is third h1</h1>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                styleobj:{color:'red','font-weight':200},
+                styleobj1:{'font-style':'italic'}
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

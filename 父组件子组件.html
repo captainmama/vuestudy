@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <template >
+            <template1 v-bind:father='msg'></template1>
+        </template>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"这是父组件？？？？？"
+            },
+            methods:{
+
+            },
+            components:{
+                template1:{
+                    template:'<h1>子组件/////-----{{father}}</h1>',
+                    props:['father'],
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 可以同时使用多个过滤器，就是后面多加管道符 -->
+        <p>{{msg | msgs('mama')}}</p>
+        <!-- 自定义指令 -->
+        <a href="https://cn.vuejs.org/v2/guide/custom-directive.html">自定义指令</a>
+    </div>
+    <script>
+        // 过滤器的第一个参数已被占用，第二个参数可以使用
+        Vue.filter('msgs',function(msg,arg){
+             return msg+"baba"+arg
+        })
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"我是你"
+            },
+            methods:{
+
+            },
+            // 私有过滤器
+            filters:{
+                
+            }
+        })
+        dt = new Date();
+        console.log(dt);
+        hours = dt.getMinutes().toString().padStart(2,'0')
+        console.log(hours);
+        // 过滤器的定义语法
+        // Vue.filter('过滤器名称',function(data){})
+    </script>
+</body>
+</html>
